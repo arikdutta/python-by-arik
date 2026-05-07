@@ -3,6 +3,7 @@ import sys
 import tkinter as tk
 from PIL import Image, ImageDraw, ImageFont, ImageTk
 import io
+import traceback
 
 PASSWORD = "python"
 MAX_ATTEMPTS = 3
@@ -28,7 +29,11 @@ def create_label_image(text, size=(200, 120), bgcolor=(240,240,240), fg=(20,20,2
         font = ImageFont.truetype("arial.ttf", 28)
     except Exception:
         font = ImageFont.load_default()
-    w, h = draw.textsize(text, font=font)
+    if hasattr(draw, "textbbox"):
+        x0, y0, x1, y1 = draw.textbbox((0, 0), text, font=font)
+        w, h = x1 - x0, y1 - y0
+    else:
+        w, h = font.getsize(text)
     draw.text(((size[0]-w)/2, (size[1]-h)/2), text, fill=fg, font=font)
     return img
 
@@ -61,7 +66,7 @@ def run_image_captcha():
         bio = io.BytesIO()
         img.save(bio, format="PNG")
         bio.seek(0)
-        photo = ImageTk.PhotoImage(Image.open(bio))
+        photo = ImageTk.PhotoImage(Image.open(bio), master=root)
         photos.append(photo)  # keep reference
         btn = tk.Button(frame, image=photo, command=lambda c=choice: on_click(c))
         btn.pack(side="left", padx=6)
@@ -99,6 +104,8 @@ def main():
             print(f"Incorrect captcha selection ({clicked}). Access denied!")
     except Exception as e:
         print("Image captcha unavailable, falling back to numeric captcha.")
+        print("Error:", e)
+        traceback.print_exc()
         if fallback_text_captcha():
             print("Captcha verified. Access granted!")
         else:
