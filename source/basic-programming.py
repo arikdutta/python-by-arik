@@ -8,7 +8,7 @@ print("My name is Arik")
 print("I live in Spain")
 print("I want to become AI Engineer")           
 
-name = "Mayur"
+name = "Arik"
 age = 14
 city = "Australia"   
 print("Hello, my name is ", name,age,city)
