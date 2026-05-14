@@ -14,9 +14,11 @@ try:
     n = int(input("How many customers are in line? "))
 except ValueError:
     print("Please enter a valid integer for the number of customers.")
-    n = 0
+    n = None
 
-if n <= 0:
+if n is None:
+    pass
+elif n <= 0:
     print("No more customers in the line.")
 else:
     customers = []
