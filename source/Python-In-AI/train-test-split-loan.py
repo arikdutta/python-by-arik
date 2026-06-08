@@ -28,7 +28,7 @@ loan_data = [
 ]
 
 labels = [
-    "Rejected", "Rejected", "Approved", "Approved", "Approved",
+    "Rejected", "Approved", "Approved", "Approved", "Approved",
     "Approved", "Approved", "Approved", "Approved", "Approved",
     "Approved", "Approved", "Rejected", "Rejected", "Rejected",
     "Rejected", "Rejected", "Rejected", "Rejected", "Rejected",
@@ -48,27 +48,33 @@ X_train, X_test, y_train, y_test = train_test_split(
 numeric_labels = [1 if l == "Approved" else 0 for l in labels]
 
 decision_tree = DecisionTreeClassifier()
-decision_tree.fit(loan_data, labels)
+decision_tree.fit(X_train, y_train)
 
-linear_model = LinearRegression()
-linear_model.fit(loan_data, numeric_labels)
+# linear_model = LinearRegression()
+# linear_model.fit(X_train, numeric_labels)
 
-print("=== Bank Loan Approval System ===\n")
-annual_salary    = float(input("Annual salary ($): "))
-monthly_expenses = float(input("Monthly expenses ($): "))
-loan_amount      = float(input("Loan amount requested ($): "))
-credit_score     = float(input("Credit score: "))
-employment_years = float(input("Years of employment: "))
+# print("=== Bank Loan Approval System ===\n")
+# annual_salary    = float(input("Annual salary ($): "))
+# monthly_expenses = float(input("Monthly expenses ($): "))
+# loan_amount      = float(input("Loan amount requested ($): "))
+# credit_score     = float(input("Credit score: "))
+# employment_years = float(input("Years of employment: "))
 
-applicant = [[annual_salary, monthly_expenses, loan_amount, credit_score, employment_years]]
+# applicant = [[annual_salary, monthly_expenses, loan_amount, credit_score, employment_years]]
 
-dt_decision = decision_tree.predict(applicant)[0]
+dt_decision = decision_tree.predict(X_test)
 
-lr_score = linear_model.predict(applicant)[0]
-lr_score = max(0.0, min(1.0, lr_score))  # clamp to [0, 1]
-lr_decision = "Approved" if lr_score >= 0.5 else "Rejected"
+# lr_score = linear_model.predict(applicant)[0]
+# lr_score = max(0.0, min(1.0, lr_score))  # clamp to [0, 1]
+# lr_decision = "Approved" if lr_score >= 0.5 else "Rejected"
+
+print("Testing:", X_test)
 
 print(f"\n--- Decision Tree        : {dt_decision}")
-print(f"--- Linear Regression    : {lr_decision} (approval score: {lr_score:.2f})")
+# print(f"--- Linear Regression    : {lr_decision} (approval score: {lr_score:.2f})")
 
-
+# Calculate accuracy
+ 
+accuracy = accuracy_score(y_test, dt_decision)
+ 
+print("Accuracy:", accuracy * 100, "%")
