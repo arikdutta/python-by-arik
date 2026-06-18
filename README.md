@@ -1,103 +1,122 @@
-# Python by Example
+# Python by Arik
 
-[Python](https://www.python.org/) is a versatile, readable programming language ideal for beginners and experts alike. Please read the [official documentation](https://docs.python.org/3/) to learn more.
+A practical, example-driven guide to learning Python with clear explanations and real coding tasks.
 
-*Python by Example* is a hands-on introduction to Python using annotated example programs. Check out the [first example](lessons/hello-world.md) or browse the full list below.
+This repository is a hands-on introduction to Python built around annotated example programs and small practice projects. Each topic is paired with runnable code so you can learn by reading, running, and modifying real examples rather than just theory.
 
-Unless stated otherwise, examples assume Python 3.10 or later. Try to upgrade to the latest version if something isn't working.
+Unless stated otherwise, examples assume **Python 3.10 or later**.
 
-## Table of Contents
+## Why this repo
+
+Most tutorials explain concepts in the abstract. This one leans on concrete, minimal examples: every idea comes with a small program you can run and tweak. It's meant for beginners working through the fundamentals, as well as anyone who wants a quick, example-first reference.
+
+## Repository structure
+
+```
+python-by-arik/
+├── .github/workflows/   # CI / automation workflows
+├── Projects/            # Larger practice projects and exercises
+├── source/              # Source examples and lesson code
+├── lessons/             # Topic-by-topic example programs
+├── notes.txt            # Working notes
+├── website.html         # Example HTML output
+├── CONTRIBUTING.md       # How to contribute
+├── LICENSE              # License terms
+└── README.md
+```
+
+> Note: Some files (text outputs, images, and a small `.db`) are artifacts produced while working through file I/O, networking, and data-handling examples.
+
+## Topics covered
 
 ### Foundations
-* [Hello World](lessons/hello-world.md)
-* [Values](lessons/values.md)
-* [Variables](lessons/variables.md)
-* [Constants](lessons/constants.md)
-* [For Loops](lessons/for-loops.md)
-* [While Loops](lessons/while-loops.md)
-* [If/Else](lessons/if-else.md)
-* [Match](lessons/match.md)
-* [Break and Continue](lessons/break-and-continue.md)
+Hello World, Values, Variables, Constants, For Loops, While Loops, If/Else, Match, Break and Continue
 
 ### Data Structures
-* [Lists](lessons/lists.md)
-* [Slicing](lessons/slicing.md)
-* [Tuples](lessons/tuples.md)
-* [Dictionaries](lessons/dictionaries.md)
-* [Sets](lessons/sets.md)
+Lists, Slicing, Tuples, Dictionaries, Sets
 
 ### Functions
-* [Functions](lessons/functions.md)
-* [Multiple Return Values](lessons/multiple-return-values.md)
-* [Variadic Functions](lessons/variadic-functions.md)
-* [Lambdas](lessons/lambdas.md)
-* [Closures](lessons/closures.md)
-* [Recursion](lessons/recursion.md)
+Functions, Multiple Return Values, Variadic Functions, Lambdas, Closures, Recursion
 
 ### Iteration and Comprehensions
-* [Range and Enumerate](lessons/range-and-enumerate.md)
-* [Comprehensions](lessons/comprehensions.md)
+Range and Enumerate, Comprehensions
 
 ### Object-Oriented
-* [Classes](lessons/classes.md)
-* [Methods](lessons/methods.md)
-* [Inheritance](lessons/inheritance.md)
-* [Dataclasses](lessons/dataclasses.md)
-* [Enums](lessons/enums.md)
-* [Type Hints](lessons/type-hints.md)
+Classes, Methods, Inheritance, Dataclasses, Enums, Type Hints
 
 ### Error Handling
-* [Exceptions](lessons/exceptions.md)
-* [Custom Exceptions](lessons/custom-exceptions.md)
+Exceptions, Custom Exceptions
 
 ### Modules and Packages
-* [Modules](lessons/modules.md)
-* [Packages](lessons/packages.md)
+Modules, Packages
 
 ### Async
-* [Async Basics](lessons/async-basics.md)
-* [Async Concurrency](lessons/async-concurrency.md)
-* [Async Queues](lessons/async-queues.md)
+Async Basics, Async Concurrency, Async Queues
 
 ### Strings and Formatting
-* [Strings](lessons/strings.md)
-* [String Formatting](lessons/string-formatting.md)
-* [Regular Expressions](lessons/regular-expressions.md)
+Strings, String Formatting, Regular Expressions
 
 ### Data and Serialization
-* [JSON](lessons/json.md)
-* [JSON Files](lessons/json-files.md)
+JSON, JSON Files
 
 ### Date and Time
-* [Time](lessons/time.md)
-* [Time Formatting](lessons/time-formatting.md)
+Time, Time Formatting
 
 ### File I/O
-* [Reading Files](lessons/reading-files.md)
-* [Writing Files](lessons/writing-files.md)
-* [File Paths](lessons/file-paths.md)
-* [Directories](lessons/directories.md)
-* [Temporary Files](lessons/temporary-files.md)
+Reading Files, Writing Files, File Paths, Directories, Temporary Files
 
 ### Command Line
-* [Command-Line Arguments](lessons/command-line-arguments.md)
-* [Argparse](lessons/argparse.md)
-* [Environment Variables](lessons/environment-variables.md)
+Command-Line Arguments, Argparse, Environment Variables
 
 ### Testing and Tooling
-* [Testing](lessons/testing.md)
-* [Logging](lessons/logging.md)
+Testing, Logging
 
 ### Networking
-* [HTTP Client](lessons/http-client.md)
-* [HTTP Server](lessons/http-server.md)
+HTTP Client, HTTP Server
 
 ### Misc
-* [Random Numbers](lessons/random-numbers.md)
-* [Exit](lessons/exit.md)
+Random Numbers, Exit
 
----
+## Getting started
 
-Licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+1. Make sure you have Python 3.10+ installed:
 
-by [Dariush Abbasi](https://github.com/dariubs) | [source](https://github.com/pycollege/python-by-example)
+   ```bash
+   python --version
+   ```
+
+2. Clone the repository:
+
+   ```bash
+   git clone https://github.com/arikdutta/python-by-arik.git
+   cd python-by-arik
+   ```
+
+3. Run any example:
+
+   ```bash
+   python source/hello-world.py
+   ```
+
+   (Adjust the path to the example or project you want to run.)
+
+## How to use this repo
+
+- Pick a topic from the list above and open its example.
+- Read the annotated code, then run it.
+- Change values, break it on purpose, and re-run to see what happens — that's the fastest way to build intuition.
+- Work through the `Projects/` folder once you're comfortable with the basics.
+
+## Contributing
+
+Contributions are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines, then open an issue or pull request with improvements, fixes, or new examples.
+
+## License
+
+See the [LICENSE](LICENSE) file for details.
+
+## Author
+
+Maintained by [arikdutta](https://github.com/arikdutta).
+
+This collection was inspired by the *Python by Example* project.
